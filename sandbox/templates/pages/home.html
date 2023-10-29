@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Home | Sandbox{% endblock title %}
+
+{% partialdef task_formset %}
+<form method="post" x-cloak>
+    {% crispy formset helper %}
+</form>
+{% endpartialdef task_formset %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome to project sandbox</h1>
+        <div class="mb-4">
+            <a class="btn btn-primary" hx-get="{% url 'pages:hx-display-task-formset' %}" hx-target="#task-form">Afficher le formulaire</a>
+        </div>
+
+        <div id="task-form"></div>
+    </div>
+{% endblock content %}«
